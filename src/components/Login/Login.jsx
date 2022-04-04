@@ -28,8 +28,9 @@ function Login() {
         const responseData = await response.json();
         return responseData;
     }
-    const usuarioDatos = JSON.stringify({userName: String(newUserName), password: String(userPassword) });
+    const usuarioDatos = JSON.stringify({userName: newUserName, password: userPassword });
     const urlLink = "https://web-develop-react-express-chat.herokuapp.com/login/"
+    
     function assignUserData() {
         userPostLogin(urlLink, usuarioDatos)
         console.log(usuarioDatos);
@@ -41,7 +42,7 @@ function Login() {
             <input type="text" onChange={getUserName} />
             <p>Contraseña:</p>
             <input type="text" onChange={getUserPassword} />
-            <input type="button" value="Entrar" onClick={assignUserData} />
+            <input type="button" value="Entrar" onClick={assignUserData}/>
         </>
     );
 }
