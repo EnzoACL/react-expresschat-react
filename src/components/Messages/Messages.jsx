@@ -31,10 +31,9 @@ function Messages({ id, secret }) {
         const stringMessage = JSON.stringify(obtainMessages);
         console.log(stringMessage);
         setUserMessage(stringMessage);
-        
+        console.log("test")
     }
-    setInterval(getMessages, 10000)
-   
+
 
     return (
         <>

@@ -26,7 +26,6 @@ function SendMessage({ id, secret }) {
     }
 
     const tokenMessage = authToken(id, secret)
-    console.log(tokenMessage);
     const [messageContent, setMessageContent] = useState()
     const messageContentWrite= (event) => {
         const preMessageContent = event.target.value;
