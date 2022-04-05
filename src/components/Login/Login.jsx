@@ -42,7 +42,7 @@ function Login() {
             <input type="text" onChange={getUserName} />
             <p>Contraseña:</p>
             <input type="text" onChange={getUserPassword} />
-            <input type="button" value="Entrar" onClick={assignUserData}/>
+            <input type="button" value="Entrar" onClick={assignUserData} />
         </>
     );
 }

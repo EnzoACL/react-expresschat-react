@@ -1,4 +1,8 @@
-function Messages(id, secret) {
+import { useState } from "react";
+
+function Messages({ id, secret }) {
+    const [userMessage, setUserMessage] = useState()
+    
     // Funcion asincrona para get con autorizacion
     //Funcion para obtener el token de autenticacion
     function authToken(id, secret) {
@@ -23,12 +27,20 @@ function Messages(id, secret) {
     }
     async function getMessages() {
         const obtainMessages = await authGetMessages(token);
+        console.log(obtainMessages);
         const stringMessage = JSON.stringify(obtainMessages);
-        return stringMessage;
-    };
+        console.log(stringMessage);
+        setUserMessage(stringMessage);
+        
+    }
+   
+
     return (
         <>
-            <a>{id}":"{getMessages}</a>
+            <p>Mensajes:</p>
+            <a>{userMessage}</a>
+            <input type="button" value="Show messages" onClick={getMessages} />
+
         </>
     );
 }
