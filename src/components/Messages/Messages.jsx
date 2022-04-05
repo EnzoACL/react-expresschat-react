@@ -33,13 +33,14 @@ function Messages({ id, secret }) {
         setUserMessage(stringMessage);
         
     }
+    setInterval(getMessages, 10000)
    
 
     return (
         <>
             <p>Mensajes:</p>
             <a>{userMessage}</a>
-            <input type="button" value="Show messages" onClick={getMessages} />
+            <input type="button" value="Show new messages" onClick={getMessages} />
 
         </>
     );

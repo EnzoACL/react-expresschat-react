@@ -12,7 +12,6 @@ function App() {
   
   return (
     <>
-      <p>Prueba</p>
       <Login/>
       <Messages id={"1649148283973"} secret={"1"}/>
       <SendMessage id={"1649148283973"} secret={"1"} />
