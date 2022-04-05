@@ -43,11 +43,12 @@ function App() {
   
   return (
     <>
-      <p>Login</p>
+      <Login/>
+      <h1>Login</h1>
       <input type="text" onChange={changeName} />
       <input type="text" onChange={changePassword} />
       <input type="button" value="log in" onClick={getUsers}/>
-      <Login/>
+      
       <Messages id={`${userId}`} secret={`${userPassword}`}/>
       <SendMessage id={`${userId}`} secret={`${userPassword}`} />
     </>

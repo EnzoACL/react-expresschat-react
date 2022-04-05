@@ -33,7 +33,7 @@ function Messages({ id, secret }) {
         setUserMessage(stringMessage);
         console.log("test")
     }
-
+    //setInterval(getMessages, )
 
     return (
         <>

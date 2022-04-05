@@ -38,6 +38,7 @@ function Login() {
 
     return (
         <>
+            <h1>Registro:</h1>
             <p>Usuario:</p>
             <input type="text" onChange={getUserName} />
             <p>Contraseña:</p>
