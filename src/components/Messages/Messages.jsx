@@ -25,15 +25,14 @@ function Messages({ id, secret }) {
         const data = await response.json();
         return data;
     }
+
+
     async function getMessages() {
         const obtainMessages = await authGetMessages(token);
-        console.log(obtainMessages);
-        const stringMessage = JSON.stringify(obtainMessages);
-        console.log(stringMessage);
+        const stringMessage = JSON.stringify(obtainMessages)
         setUserMessage(stringMessage);
-        console.log("test")
     }
-    //setInterval(getMessages, )
+    //gtsetInterval(getMessages, )
 
     return (
         <>
