@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function Messages({ id, secret }) {
-    const [userMessage, setUserMessage] = useState()
+    const [userMessage, setUserMessage] = useState([])
     
     // Funcion asincrona para get con autorizacion
     //Funcion para obtener el token de autenticacion
@@ -25,19 +25,44 @@ function Messages({ id, secret }) {
         const data = await response.json();
         return data;
     }
-
+    async function get(url) {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+    }
+   
 
     async function getMessages() {
         const obtainMessages = await authGetMessages(token);
-        const stringMessage = JSON.stringify(obtainMessages)
-        setUserMessage(stringMessage);
+        //Mensaje final vacio:
+        const arrayMessage=[]
+        //var finalMessage=""
+        //Obtener usuarios
+        const users = await get("https://web-develop-react-express-chat.herokuapp.com/users/");        
+        for (let item of obtainMessages) {
+            for (let things of users) {
+                if (item.source === things.id) {
+                    console.log(item.source)
+                    console.log(things.id)
+                    const date = new Date(item.time * 1000)
+                    arrayMessage.push([`Nuevo mensaje a las ${date} de ${things.name}: ${item.content}`])
+                   // finalMessage += things.name + " ha dicho: " + item.content + " "
+                }
+            }
+        }
+        console.log(arrayMessage);
+       // const stringToArray = JSON.stringify(arrayMessage);
+        setUserMessage(arrayMessage);
     }
+    
     //gtsetInterval(getMessages, )
 
     return (
         <>
             <p>Mensajes:</p>
-            <a>{userMessage}</a>
+            <ul>
+                {userMessage}
+            </ul>
             <input type="button" value="Show new messages" onClick={getMessages} />
 
         </>
