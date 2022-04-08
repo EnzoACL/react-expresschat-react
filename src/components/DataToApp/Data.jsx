@@ -47,7 +47,7 @@ function Data({ dataSetter }) {
 
     return (
         <>
-            <h1>Datos:</h1>
+            <h1>Entrar al chat:</h1>
             <p>Usuario:</p>
             <input placeholder="Username" onChange={setUserNameHandler}/>
             <p>{userName}</p>

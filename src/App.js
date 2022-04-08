@@ -22,7 +22,7 @@ function App() {
       <Login />       
       <Messages id={data.id} secret={data.password}/>
       <SendMessage id={data.id} secret={data.password} />
-      <p>Datos: {JSON.stringify(data)}</p>
+      <p>Datos de sesion: {JSON.stringify(data)}</p>
       <input type="button" value="Log test" onClick={testHandler}/>
     </>
   );

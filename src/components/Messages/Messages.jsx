@@ -31,39 +31,50 @@ function Messages({ id, secret }) {
         return data;
     }
    
+    const arrayMessage=[]
 
     async function getMessages() {
         const obtainMessages = await authGetMessages(token);
         //Mensaje final vacio:
-        const arrayMessage=[]
         //var finalMessage=""
         //Obtener usuarios
         const users = await get("https://web-develop-react-express-chat.herokuapp.com/users/");        
         for (let item of obtainMessages) {
             for (let things of users) {
                 if (item.source === things.id) {
-                    console.log(item.source)
-                    console.log(things.id)
-                    const date = new Date(item.time * 1000)
-                    arrayMessage.push([`Nuevo mensaje a las ${date} de ${things.name}: ${item.content}`])
+                    
+                    
+                    function addZero(i) {
+                        if (i < 10) {i = "0" + i}
+                        return i;
+                      }
+                      const d = new Date(item.time);
+                      let h = addZero(d.getHours());
+                      let m = addZero(d.getMinutes());
+                      let s = addZero(d.getSeconds());
+                      let time = h + ":" + m;
+
+                    arrayMessage.push([`${time} ${things.name} dijo: ${item.content}`])
                    // finalMessage += things.name + " ha dicho: " + item.content + " "
+                   
                 }
             }
         }
-        console.log(arrayMessage);
        // const stringToArray = JSON.stringify(arrayMessage);
-        setUserMessage(arrayMessage);
+        setUserMessage(<ul>
+            {arrayMessage.map((arrayMessage) => (
+                <li>{arrayMessage}</li>
+            ))}
+            </ul>);
     }
-    
+
     //gtsetInterval(getMessages, )
 
     return (
         <>
-            <p>Mensajes:</p>
-            <ul>
-                {userMessage}
-            </ul>
-            <input type="button" value="Show new messages" onClick={getMessages} />
+         <h1>Mensajes:</h1>
+         {userMessage}        
+         <input type="button" value="Show new messages" onClick={getMessages} />
 
         </>
     );

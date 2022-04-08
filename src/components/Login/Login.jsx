@@ -38,7 +38,7 @@ function Login() {
 
     return (
         <>
-            <h1>Registro:</h1>
+            <h1>Registrase en el chat:</h1>
             <p>Usuario:</p>
             <input type="text" onChange={getUserName} />
             <p>Contraseña:</p>
