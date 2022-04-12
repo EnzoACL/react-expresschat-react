@@ -4,6 +4,8 @@ function Data({ dataSetter }) {
     const [userName, setUserName] = useState();
     const [userPassword, setUserPassword] = useState();
     const [userId, setUserId] = useState();
+    const [logged, setLogged] = useState(false);
+    const [registrered, setRegistrered] = useState(false);
     
     const setUserNameHandler = (event) => {
         setUserName(event.target.value);
@@ -18,9 +20,12 @@ function Data({ dataSetter }) {
                 user: userName,
                 id: userId,
                 password: userPassword,
+                registercheck: registrered,
+                loggedcheck: logged,
             })
+            
         },
-        [userName, userPassword, userId]
+        [userName, userPassword, userId, registrered, logged]
     )
 
     //Obtener ID con nombre de usuario:
@@ -38,23 +43,28 @@ function Data({ dataSetter }) {
         for (let idx = 0; idx < users.length; idx++) {
             if (userName === users[idx].name) {
                 setUserId(users[idx].id)
+                setLogged(true)
+                
                 
              }
             
         }
+        
     }
-
+    function showRegistrer() {
+        setRegistrered(true)
+    }
 
     return (
         <>
             <h1>Entrar al chat:</h1>
             <p>Usuario:</p>
             <input placeholder="Username" onChange={setUserNameHandler}/>
-            <p>{userName}</p>
             <p>Contraseña:</p>
             <input placeholder="Password" onChange={setPasswordHandler} />
-            <p>{userPassword}</p>
-            <input type="button" value="Set Data" onClick={getData}/>
+            <input type="button" value="Entrar" onClick={getData} />
+            <p>No tienes una cuenta?</p><input type="button" value="Registrarse" onClick={showRegistrer}/>
+
         </>
     );
 }

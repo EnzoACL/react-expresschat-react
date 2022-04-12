@@ -10,20 +10,27 @@ function App() {
   const [data, setData] = useState({
     id: 0,
     user: "",
-    password: ""
-
+    password: "",
+    registercheck: false,
+    loggedcheck: false
   })
-  function testHandler() {
-    const test = console.log(data)
-  }
+ 
+  
+  
   return (
     <>
-      <Data dataSetter={setData} />
-      <Login />       
-      <Messages id={data.id} secret={data.password}/>
-      <SendMessage id={data.id} secret={data.password} />
-      <p>Datos de sesion: {JSON.stringify(data)}</p>
-      <input type="button" value="Log test" onClick={testHandler}/>
+      <div className="general">
+        <div className='logpag'>
+          {!data.registercheck && !data.loggedcheck && <Data dataSetter={setData} />}
+        </div>
+        <div className='regpag'>
+          {data.registercheck && <Login />}
+        </div>
+        <div className="mensajes">
+          {data.loggedcheck && <Messages id={data.id} secret={data.password} />}
+          {data.loggedcheck &&<SendMessage id={data.id} secret={data.password} />}      
+        </div>
+      </div>
     </>
   );
 }

@@ -35,12 +35,15 @@ function SendMessage({ id, secret }) {
     function postMessage() {
         authPost(urlMessage, tokenMessage, messageContent);
     }
-
+    function principalPage() {
+        window.location.reload();
+    }
     return (
         <>
             <p>Contenido del mensaje:</p>
             <input type="text" onChange={messageContentWrite} />
-            <input type="button" value="Send message" onClick={postMessage}/>
+            <input type="button" value=">" onClick={postMessage} />
+            <p><input type="button" value="Salir" onClick={principalPage}/></p>
         </>
     );
 }

@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Login() {
     const [newUserName, setUserName] = useState()
     const [userPassword, setUserPassword] = useState()
+    const [registered2, setRegistered2] = useState(true)
+
+   
+    
+
+    
     
     const getUserName= (event) => {
             const preUserName = event.target.value;
@@ -27,13 +33,16 @@ function Login() {
         );
         const responseData = await response.json();
         return responseData;
+
     }
     const usuarioDatos = JSON.stringify({userName: newUserName, password: userPassword });
     const urlLink = "https://web-develop-react-express-chat.herokuapp.com/login/"
     
-    function assignUserData() {
-        userPostLogin(urlLink, usuarioDatos)
-        console.log(usuarioDatos);
+    async function assignUserData() {
+       await userPostLogin(urlLink, usuarioDatos)
+        window.location.reload();
+
+
     }
 
     return (
@@ -43,7 +52,7 @@ function Login() {
             <input type="text" onChange={getUserName} />
             <p>Contraseña:</p>
             <input type="text" onChange={getUserPassword} />
-            <input type="button" value="Registrarse" onClick={assignUserData} />
+            <p><input type="button" value="Registrarse" onClick={assignUserData} /></p>
         </>
     );
 }

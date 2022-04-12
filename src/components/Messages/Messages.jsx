@@ -54,7 +54,7 @@ function Messages({ id, secret }) {
                       let s = addZero(d.getSeconds());
                       let time = h + ":" + m;
 
-                    arrayMessage.push([`${time} ${things.name} dijo: ${item.content}`])
+                    arrayMessage.push([`${time} ${things.name}: ${item.content}`])
                    // finalMessage += things.name + " ha dicho: " + item.content + " "
                    
                 }
@@ -68,7 +68,6 @@ function Messages({ id, secret }) {
             </ul>);
     }
 
-    //gtsetInterval(getMessages, )
 
     return (
         <>
