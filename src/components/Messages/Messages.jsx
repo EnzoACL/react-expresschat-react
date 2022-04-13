@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Messages({ id, secret }) {
     const [userMessage, setUserMessage] = useState([])
@@ -31,9 +31,10 @@ function Messages({ id, secret }) {
         return data;
     }
    
-    const arrayMessage=[]
 
     async function getMessages() {
+        const arrayMessage=[]
+
         const obtainMessages = await authGetMessages(token);
         //Mensaje final vacio:
         //var finalMessage=""
@@ -55,12 +56,10 @@ function Messages({ id, secret }) {
                       let time = h + ":" + m;
 
                     arrayMessage.push([`${time} ${things.name}: ${item.content}`])
-                   // finalMessage += things.name + " ha dicho: " + item.content + " "
                    
                 }
             }
         }
-       // const stringToArray = JSON.stringify(arrayMessage);
         setUserMessage(<ul>
             {arrayMessage.map((arrayMessage) => (
                 <li>{arrayMessage}</li>
@@ -68,12 +67,17 @@ function Messages({ id, secret }) {
             </ul>);
     }
 
+    useEffect(() => {
+        setInterval(getMessages,1000);
+      }, []);
 
     return (
         <>
-         <h1>Mensajes:</h1>
-         {userMessage}        
-         <input type="button" value="Show new messages" onClick={getMessages} />
+            <div className="mensajes">
+
+                <h1>Mensajes:</h1>
+                {userMessage}
+            </div>
 
         </>
     );

@@ -57,14 +57,15 @@ function Data({ dataSetter }) {
 
     return (
         <>
-            <h1>Entrar al chat:</h1>
-            <p>Usuario:</p>
-            <input placeholder="Username" onChange={setUserNameHandler}/>
-            <p>Contraseña:</p>
-            <input placeholder="Password" onChange={setPasswordHandler} />
-            <input type="button" value="Entrar" onClick={getData} />
-            <p>No tienes una cuenta?</p><input type="button" value="Registrarse" onClick={showRegistrer}/>
-
+            <div className="logpag">
+                <h1>Entrar al chat:</h1>
+                <p>Usuario:</p>
+                <input placeholder="Username" onChange={setUserNameHandler}/>
+                <p>Contraseña:</p>
+                <input placeholder="Password" onChange={setPasswordHandler} />
+                <p><input type="button" value="Entrar" onClick={getData} /></p>
+                <p>No tienes una cuenta?</p><input type="button" value="Registrarse" onClick={showRegistrer}/>
+            </div>
         </>
     );
 }

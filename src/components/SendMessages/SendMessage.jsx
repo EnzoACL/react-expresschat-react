@@ -40,10 +40,12 @@ function SendMessage({ id, secret }) {
     }
     return (
         <>
-            <p>Contenido del mensaje:</p>
-            <input type="text" onChange={messageContentWrite} />
-            <input type="button" value=">" onClick={postMessage} />
-            <p><input type="button" value="Salir" onClick={principalPage}/></p>
+            <div className="sendMensajes">
+
+                <input type="text" className="messageBox" onChange={messageContentWrite} />
+                <input type="button" className="sendMessage" value=">" onClick={postMessage} />
+                <input type="button" className="exitChat" value="Salir" onClick={principalPage} />
+            </div>
         </>
     );
 }

@@ -47,12 +47,14 @@ function Login() {
 
     return (
         <>
-            <h1>Registrase en el chat:</h1>
-            <p>Usuario:</p>
-            <input type="text" onChange={getUserName} />
-            <p>Contraseña:</p>
-            <input type="text" onChange={getUserPassword} />
-            <p><input type="button" value="Registrarse" onClick={assignUserData} /></p>
+            <div className="regpag">
+                <h1>Registrase en el chat:</h1>
+                <p>Usuario:</p>
+                <input type="text" onChange={getUserName} />
+                <p>Contraseña:</p>
+                <input type="text" onChange={getUserPassword} />
+                <p><input type="button" value="Registrarse" onClick={assignUserData} /></p>
+            </div>
         </>
     );
 }
