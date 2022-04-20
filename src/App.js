@@ -20,12 +20,12 @@ function App() {
    
   return (
     <>
-      <div className='principal'>
-          {!data.registercheck && !data.loggedcheck && <Data dataSetter={setData} />}        
-          {data.registercheck && <Login />}
-          {data.loggedcheck && <Messages id={data.id} secret={data.password} />}
-          {data.loggedcheck &&<SendMessage id={data.id} secret={data.password} />}      
-      </div> 
+      
+        {!data.registercheck && !data.loggedcheck && <Data dataSetter={setData} />}        
+        {data.registercheck && <Login />}         
+        {data.loggedcheck && <Messages id={data.id} secret={data.password} />}
+        <p>{data.loggedcheck && <SendMessage id={data.id} secret={data.password} />}</p>
+
     </>
   );
 }

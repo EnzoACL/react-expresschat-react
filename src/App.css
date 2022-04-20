@@ -1,17 +1,17 @@
 html{
   display:grid;
-  background-color:  #ffffff; 
+  background-color:  #041101;
   color: rgb(255, 255, 255);
 }
 .logpag, .regpag, .mensajes, .sendMensajes {
-  background-color:  #ffffff; 
-  color: rgb(0, 0, 0);
+  background-color:  #041101; 
+  color: rgb(0, 255, 34);
+  font-size: 30px;
 }
 .logpag, .regpag, .mensajes{
   display:flex;
   flex-flow: column;
   align-items: center;
-  
 }
 .sendMensajes {
   display:flex;
@@ -20,6 +20,17 @@ html{
   flex-direction:row;
   justify-content: center;
 }
+.chatBorder{
+  display:flex;
+  border: solid 10px transparent;
+  border-radius: 15px;
+  background-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)), 
+    linear-gradient(315deg,#00b96c,#1dfd8d 50%,#009107);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  height:fit-content;
+}
+
 
 
 

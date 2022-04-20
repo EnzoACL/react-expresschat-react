@@ -47,6 +47,8 @@ function Login() {
 
     return (
         <>
+            <div className='crt'>
+
             <div className="regpag">
                 <h1>Registrase en el chat:</h1>
                 <p>Usuario:</p>
@@ -54,6 +56,7 @@ function Login() {
                 <p>Contraseña:</p>
                 <input type="text" onChange={getUserPassword} />
                 <p><input type="button" value="Registrarse" onClick={assignUserData} /></p>
+                </div>
             </div>
         </>
     );

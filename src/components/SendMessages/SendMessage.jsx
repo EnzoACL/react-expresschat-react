@@ -39,12 +39,13 @@ function SendMessage({ id, secret }) {
         window.location.reload();
     }
     return (
-        <>
+        <><div className='crt'>
             <div className="sendMensajes">
 
                 <input type="text" className="messageBox" onChange={messageContentWrite} />
                 <input type="button" className="sendMessage" value=">" onClick={postMessage} />
                 <input type="button" className="exitChat" value="Salir" onClick={principalPage} />
+            </div>
             </div>
         </>
     );

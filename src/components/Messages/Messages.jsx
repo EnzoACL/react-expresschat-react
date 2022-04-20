@@ -73,11 +73,16 @@ function Messages({ id, secret }) {
 
     return (
         <>
+             <div className='crt'>
+
             <div className="mensajes">
 
                 <h1>Mensajes:</h1>
-                {userMessage}
-            </div>
+                <div className='chatBorder'>
+                    {userMessage}
+                 </div>   
+                </div>
+                </div>
 
         </>
     );
