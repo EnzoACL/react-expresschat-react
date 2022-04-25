@@ -33,7 +33,8 @@ function Messages({ id, secret }) {
    
 
     async function getMessages() {
-        const arrayMessage=[]
+        const arrayMessage = []
+        const arrayMessageData = []
 
         const obtainMessages = await authGetMessages(token);
         //Mensaje final vacio:
@@ -52,24 +53,29 @@ function Messages({ id, secret }) {
                       const d = new Date(item.time);
                       let h = addZero(d.getHours());
                       let m = addZero(d.getMinutes());
-                      let s = addZero(d.getSeconds());
                       let time = h + ":" + m;
 
                     arrayMessage.push([`${time} ${things.name}: ${item.content}`])
-                   
+                    arrayMessageData.push([`${time} ${things.name}:`])
+                    
                 }
             }
         }
+
+        //
+        
+        
         setUserMessage(<ul>
             {arrayMessage.map((arrayMessage) => (
                 <li>{arrayMessage}</li>
             ))}
-            </ul>);
+        </ul>);
+        //
     }
 
-    useEffect(() => {
-        setInterval(getMessages,1000);
-      }, []);
+        useEffect(() => {
+            setInterval(getMessages,1000);
+        }, []);
 
     return (
         <>
